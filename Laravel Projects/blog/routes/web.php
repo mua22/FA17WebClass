@@ -11,13 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-
-    return view('home');
-});
-Route::get('/hobbies', function () {
-    return view('hobbies');
-});
+Route::get('/', 'HomeController@index');
+//Route::get('/', function () {
+//
+//    return view('home');
+//});
+Route::get('/hobbies', 'HomeController@hobbies');
 Route::get('/enemies', function () {
     return view('enemies');
 });
