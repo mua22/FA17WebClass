@@ -1,10 +1,23 @@
-@extends('layouts.master')
+@extends('layouts.app')
+
 @section('content')
-    <h3>Welcome to Lahore</h3>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto deserunt dolorum natus nisi? A aliquid cumque doloribus, incidunt nam odio officiis quo ratione recusandae repellendus reprehenderit ullam veritatis vero?
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Dashboard</div>
 
+                <div class="panel-body">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    You are logged in!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
-
-@section('footer')
-    lahore is an amazing place to visit in winter smog
-    @endsection

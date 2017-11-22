@@ -22,3 +22,7 @@ Route::get('/test',function(){
     return 'from test';
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

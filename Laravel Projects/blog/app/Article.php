@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Hobby extends Model
+class Article extends Model
 {
     //
 }

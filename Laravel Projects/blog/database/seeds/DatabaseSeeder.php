@@ -11,6 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+       /* $article = new \App\Article();
+        $article->title = 'Web Development';
+        $article->body = 'Web Development is fun';
+        $article->save();*/
+
+        $this->call(UsersTableSeeder::class);
+        $this->call(ArticlesTableSeeder::class);
     }
 }
