@@ -15,6 +15,11 @@ class ArticlesTableSeeder extends Seeder
         $article->title = 'Android Development';
         $article->body = 'Android Development is not fun';
         $article->save();*/
-        factory(App\Article::class,500)->create();
+        factory(App\Article::class,15)->create();
+        foreach(Article::all() as $article){
+            $article->comments()
+                ->saveMany(factory(App\Comment::class,rand(4,8))
+                    ->make());
+        }
     }
 }

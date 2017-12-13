@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
        // $articles = Article::all();
-        $articles = Article::paginate(3);
+        $articles = Article::with('user')->paginate(5);
         return view('home',compact('articles'));
        // return view('home')->with(compact('articles'));
         //return view('home')->with(['articles'=>$articles]);

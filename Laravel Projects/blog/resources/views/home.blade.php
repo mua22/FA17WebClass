@@ -14,7 +14,10 @@
                         </div>
                     @endif
                     @foreach($articles as $article)
-                        <h2>{{$article->title}}</h2>
+                        <h2><a href="{{route('articles.show',$article->id)}}">{{$article->title}}</a></h2>
+                            By: {{$article->user->name}}<br>
+                        {{$article->updated_at->diffForHumans()}}
+
                         <p>{{$article->body}}</p>
                             <hr>
                         @endforeach

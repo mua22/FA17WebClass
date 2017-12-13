@@ -1,5 +1,5 @@
 @extends('layouts.master')
 @section('content')
-    <h3>There are many universities in lahore</h3>
+<h1>{{$university->title}}</h1>
 
 @endsection

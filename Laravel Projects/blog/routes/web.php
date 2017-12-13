@@ -20,6 +20,14 @@ Route::get('/hobbies', 'HomeController@hobbies');
 Route::get('/enemies', function () {
     return view('enemies');
 });
+//articles routes
+Route::get('/articles/show/{id}', 'ArticlesController@show')->name('articles.show');
+
+Route::prefix('admin')->group(function () {
+    Route::get('/','Admin\DashboardController@index');
+    Route::get('/articles','Admin\ArticlesController@index');
+
+});
 
 Auth::routes();
 

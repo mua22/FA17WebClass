@@ -33,3 +33,11 @@ $factory->define(App\Article::class, function (Faker\Generator $faker) {
 
     ];
 });
+$factory->define(App\Comment::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'comment' => $faker->sentence(5),
+
+    ];
+});
