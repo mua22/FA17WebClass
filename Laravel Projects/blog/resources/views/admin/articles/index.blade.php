@@ -14,8 +14,14 @@
                 <tr>
                     <td>{{$article->id}}</td>
                     <td>{{$article->title}}</td>
-                    <td><a href="" class="btn btn-info btn-sm">Edit</a>
-                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                    <td><a href="/articles/{{$article->id}}/edit" class="btn btn-info btn-sm">Edit</a>
+                        <form action="/articles/{{$article->id}}/delete" class="form-inline inline" method="POST">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                            <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+
+                        </form>
+
                     </td>
                 </tr>    
             @endforeach

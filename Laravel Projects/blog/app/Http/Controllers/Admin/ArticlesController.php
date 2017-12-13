@@ -26,7 +26,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.articles.create');
     }
 
     /**
@@ -37,7 +37,12 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $article = new Article();
+        $article->title = $request->title;
+        $article->body = $request->body;
+        $article->user_id = 2;
+        $article->save();
+        return redirect(url('/admin/articles'));
     }
 
     /**
@@ -59,7 +64,8 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        return view('admin.articles.edit',compact('article'));
     }
 
     /**
@@ -71,7 +77,12 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id);
+        $article->title = $request->title;
+        $article->body = $request->body;
+       // $article->user_id = 2;
+        $article->save();
+        return redirect(url('/admin/articles'));
     }
 
     /**
@@ -80,8 +91,13 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        $article = Article::find($id);
+
+        $article->delete();
+        $request->session()->flash('alert-danger', 'Article was deleted!');
+
+        return redirect(url('/admin/articles'));
     }
 }

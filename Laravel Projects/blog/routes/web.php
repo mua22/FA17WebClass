@@ -28,7 +28,11 @@ Route::prefix('admin')->group(function () {
     Route::get('/articles','Admin\ArticlesController@index');
 
 });
-
+Route::get('/articles/create','Admin\ArticlesController@create');
+Route::get('/articles/{id}/edit','Admin\ArticlesController@edit');
+Route::patch('/articles/{id}/update','Admin\ArticlesController@update');
+Route::delete('/articles/{id}/delete','Admin\ArticlesController@destroy');
+Route::post('/articles','Admin\ArticlesController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
